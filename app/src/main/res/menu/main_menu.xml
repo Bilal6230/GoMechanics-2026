@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<group android:checkableBehavior="single">
+    <item android:id="@+id/home"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="Home"
+        />
+    <item android:id="@+id/whatapp"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="Contact"
+        />
+    <item android:id="@+id/facebook"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="Gallery"
+        />
+</group>
+    <item android:title="Profile">
+        <menu>
+            <group android:checkableBehavior="single">
+            <item android:id="@+id/about"
+                android:icon="@drawable/ic_launcher_foreground"
+                android:title="About"
+                />
+            <item android:id="@+id/Login"
+                android:icon="@drawable/ic_launcher_foreground"
+                android:title="Login"
+                />
+            </group>
+        </menu>
+    </item>
+    <item android:title="Communication">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:id="@+id/share"
+                    android:icon="@drawable/ic_launcher_foreground"
+                    android:title="Share"
+                    />
+                <item android:id="@+id/Rate_us"
+                    android:icon="@drawable/ic_launcher_foreground"
+                    android:title="Rate_Us"
+                    />
+            </group>
+        </menu>
+    </item>
+</menu>

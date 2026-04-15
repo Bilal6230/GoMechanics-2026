@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "165046908921",
+    "project_id": "gomechanic-s",
+    "storage_bucket": "gomechanic-s.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165046908921:android:ae4f5a129187393091ef28",
+        "android_client_info": {
+          "package_name": "com.example.gomechanics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "165046908921-go5oucfeirf0hg5hnbd6bldvtp65ircf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsaZI0XKTaQ5qvacBNO-ZBqCUxTbiFd6s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "165046908921-go5oucfeirf0hg5hnbd6bldvtp65ircf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

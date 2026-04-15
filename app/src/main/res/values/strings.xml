@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">GoMechanic\'s</string>
+    <string-array name="vehicle_types">
+        <item>Bike</item>
+        <item>Car</item>
+        <item>Bike/Car</item>
+    </string-array>
+</resources>

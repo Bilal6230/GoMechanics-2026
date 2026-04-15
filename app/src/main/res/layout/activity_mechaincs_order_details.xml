@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mechanics_list">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:id="@+id/lyRelativeLayoutheader"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/mechanicsbg"
+            >
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/lyRelativeLayoutBackbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true">
+
+            <ImageButton
+                android:id="@+id/ImageBtnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/fulltransparen"
+                android:src="@drawable/back" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mechanics"
+                android:textColor="@color/white"
+                android:textSize="12pt"
+                android:textStyle="bold"
+                android:fontFamily="@font/robotoreg"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lyRelativeLayoutBackbutton"
+            android:layout_marginTop="6mm">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="4mm"
+                android:layout_marginRight="4mm"
+                android:layout_marginBottom="6mm"
+                android:backgroundTint="@color/transparent"
+                app:cardCornerRadius="40dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15mm"
+                        >
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="5mm"
+                                    >
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:orientation="horizontal"
+                                        android:id="@+id/lyLinearLayoutProfile">
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="120dp"
+                                            android:layout_height="100dp"
+                                            android:layout_marginRight="20dp"
+                                            android:backgroundTint="@color/grey100"
+                                            app:cardCornerRadius="13dp"
+                                            app:cardElevation="10dp">
+
+                                            <RelativeLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent">
+
+                                                <ImageView
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_alignParentTop="true"
+                                                    android:layout_centerInParent="true"
+                                                    android:layout_marginTop="10dp"
+                                                    android:src="@drawable/mechanic1" />
+
+                                            </RelativeLayout>
+
+                                        </androidx.cardview.widget.CardView>
+
+                                    </LinearLayout>
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/lyLinearLayoutProfile"
+                                        android:id="@+id/lyRelativeLayoutName"
+                                        android:layout_margin="10dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentStart="true"
+                                            android:layout_alignParentTop="true"
+                                            android:layout_marginTop="5dp"
+                                            android:fontFamily="@font/robotoreg"
+                                            android:text="Address"
+                                            android:textSize="10pt"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/tvcustomeraddres"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentTop="true"
+                                            android:layout_alignParentEnd="true"
+                                            android:layout_marginTop="30dp"
+                                            android:fontFamily="@font/robotoreg"
+                                            android:text="Address"
+                                            android:textSize="10pt"
+                                            android:textStyle="bold" />
+
+                                    </RelativeLayout>
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/lyRelativeLayoutName"
+                                        android:id="@+id/lyRelativeLayoutVehicalType"
+                                        android:layout_margin="10dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentStart="true"
+                                            android:layout_alignParentTop="true"
+                                            android:layout_marginTop="5dp"
+                                            android:fontFamily="@font/robotoreg"
+                                            android:text="Issues"
+                                            android:textSize="10pt"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/tvcutomerissues"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentTop="true"
+                                            android:layout_alignParentEnd="true"
+                                            android:layout_marginTop="30dp"
+                                            android:fontFamily="@font/robotoreg"
+                                            android:text="Bike"
+                                            android:textSize="10pt"
+                                            android:textStyle="bold" />
+
+                                    </RelativeLayout>
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/lyRelativeLayoutVehicalType"
+                                        android:id="@+id/lyRelativeLayoutIssues"
+                                        android:layout_margin="10dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentStart="true"
+                                            android:layout_alignParentTop="true"
+                                            android:layout_marginTop="5dp"
+                                            android:fontFamily="@font/robotoreg"
+                                            android:text="Contact"
+                                            android:textSize="10pt"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/tvcustomercontact"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentTop="true"
+                                            android:layout_alignParentEnd="true"
+                                            android:layout_marginTop="30dp"
+                                            android:fontFamily="@font/robotoreg"
+                                            android:text="Contact"
+                                            android:textSize="10pt"
+                                            android:textStyle="bold" />
+
+                                    </RelativeLayout>
+
+                                    <RelativeLayout
+                                        android:id="@+id/lyRelativeLayoutContact"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/lyRelativeLayoutIssues"
+                                        android:layout_marginStart="10dp"
+                                        android:layout_marginTop="10dp"
+                                        android:layout_marginEnd="10dp"
+                                        android:layout_marginBottom="10dp">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentStart="true"
+                                            android:layout_alignParentTop="true"
+                                            android:layout_marginTop="5dp"
+                                            android:fontFamily="@font/robotoreg"
+                                            android:text="Budget"
+                                            android:textSize="10pt"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:id="@+id/customerbudget"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentTop="true"
+                                            android:layout_alignParentEnd="true"
+                                            android:layout_marginTop="30dp"
+                                            android:fontFamily="@font/robotoreg"
+                                            android:text="0"
+                                            android:textSize="10pt"
+                                            android:textStyle="bold" />
+
+                                    </RelativeLayout>
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/lyRelativeLayoutContact"
+                                        android:id="@+id/lyRelativeLayoutCommingButton"
+                                        android:layout_margin="10dp">
+
+                                        <Button
+                                            android:id="@+id/btncommin"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_centerInParent="true"
+                                            android:background="@drawable/hire_me_btn"
+                                            android:text="Comming"
+                                            android:textColor="@color/black" />
+
+                                    </RelativeLayout>
+                                </RelativeLayout>
+
+                            </LinearLayout>
+                        </ScrollView>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

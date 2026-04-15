@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".address_Information">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lyRelativeLayoutPersnolaInformation"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            >
+            <ImageButton
+                android:id="@+id/ImageBtnBack"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/backgreybtn"
+                android:background="@color/fulltransparen"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Persnol Information"
+                android:textStyle="bold"
+                android:textSize="8pt"
+                android:fontFamily="@font/robotoreg"
+                android:layout_gravity="center"/>
+
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/lyRelativeLayoutPersnolaInformation"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lyRelativeLayoutPersnolaInformation"
+        android:layout_margin="10dp"
+        >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5mm"
+            android:id="@+id/lyRelativeLayoutVehicaleDecription"
+            >
+
+            <TextView
+                android:id="@+id/tvVehicaledecription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotoreg"
+                android:text="Vehicale Decription"
+                android:textColor="@color/black"
+                android:textSize="7pt"
+                android:textStyle="bold" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvVehicaledecription"
+                android:layout_marginTop="7dp"
+                android:id="@+id/etdecription"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etVehicalDecription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="15dp"
+                    android:lines="6"
+                    android:gravity="top"
+                    android:overScrollMode="always"
+                    android:scrollbarStyle="insideInset"
+                    android:scrollHorizontally="false"
+                    android:background="@drawable/black_border_edit_text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2mm"
+            android:id="@+id/lyRelativeLayoutVehicaleissues"
+            android:layout_below="@+id/lyRelativeLayoutVehicaleDecription"
+            >
+            <TextView
+                android:id="@+id/tvVehicaleissues"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vehicle Issues"
+                android:textSize="7pt"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:fontFamily="@font/robotoreg"
+                />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvVehicaleissues"
+                android:layout_marginTop="7dp"
+                android:id="@+id/etissues"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etVehicaleIssues"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="15dp"
+                    android:lines="6"
+                    android:gravity="top"
+                    android:overScrollMode="always"
+                    android:scrollbarStyle="insideInset"
+                    android:scrollHorizontally="false"
+                    android:background="@drawable/black_border_edit_text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lyRelativeLayoutVehicaleissues"
+            android:id="@+id/lyRelativelayoutContactInfo"
+            android:layout_marginTop="3mm">
+
+            <TextView
+                android:id="@+id/tvContactInformation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotoreg"
+                android:text="Contact"
+                android:textColor="@color/black"
+                android:textSize="7pt"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etVehicaleContact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvContactInformation"
+                android:inputType="number"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/black_border_edit_text"
+                android:hint="03086159654"
+                android:padding="10dp"
+                android:paddingStart="20dp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lyRelativelayoutContactInfo"
+            android:id="@+id/lyRelativeLayoutBudget"
+            android:layout_marginTop="3mm">
+
+            <TextView
+                android:id="@+id/tvBudget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotoreg"
+                android:text="Budget"
+                android:textColor="@color/black"
+                android:textSize="7pt"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etMinBudget"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_below="@+id/tvBudget"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/black_border_edit_text"
+                android:hint="Min"
+                android:padding="10dp"
+                android:paddingStart="20dp" />
+
+            <EditText
+                android:id="@+id/etMaxBudget"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_below="@+id/tvBudget"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/black_border_edit_text"
+                android:hint="Max"
+                android:padding="10dp"
+                android:paddingStart="20dp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lyRelativeLayoutBudget"
+            android:id="@+id/lyRelativeLayoutAddress"
+            android:layout_marginTop="15dp"
+            >
+            <TextView
+                android:id="@+id/tvAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:textSize="7pt"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:fontFamily="@font/robotoreg"
+                />
+
+            <EditText
+                android:id="@+id/etVehicalAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvAddress"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/black_border_edit_text"
+                android:hint="DHA Phase 2 Sector U Street no 2 House 101"
+                android:padding="10dp"
+                android:paddingStart="20dp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lyRelativeLayoutAddress"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="25dp">
+
+            <Button
+                android:id="@+id/btnfinsih"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/hire_me_btn"
+                android:text="Finish" />
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
+</RelativeLayout>

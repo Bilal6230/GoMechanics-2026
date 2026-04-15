@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".address_Information">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/lyRelativeLayoutPersnolaInformation"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/bg">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go Mechanics"
+            android:textStyle="bold"
+            android:textSize="12pt"
+            android:textColor="@color/white"
+            android:fontFamily="@font/robotoreg"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lyRelativeLayoutPersnolaInformation"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/lyRelativeLayoutPersnolaInformation"
+            android:layout_margin="10dp"
+            >
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5mm"
+                android:id="@+id/lyRelativeLayoutVehicaleDecription"
+                >
+
+                <TextView
+                    android:id="@+id/tvVehicaledecription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/robotoreg"
+                    android:text="Name"
+                    android:textColor="@color/black"
+                    android:textSize="7pt"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvVehicaledecription"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/black_border_edit_text"
+                    android:hint="Umer"
+                    android:padding="10dp"
+                    android:paddingStart="20dp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2mm"
+                android:id="@+id/lyRelativeLayoutVehicaleissues"
+                android:layout_below="@+id/lyRelativeLayoutVehicaleDecription"
+                >
+
+                <TextView
+                    android:id="@+id/tvVehicaleissues"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/robotoreg"
+                    android:text="Vehical Type"
+                    android:textColor="@color/black"
+                    android:textSize="7pt"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etvehicaletype"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvVehicaleissues"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/black_border_edit_text"
+                    android:hint="Bike"
+                    android:padding="10dp"
+                    android:paddingStart="20dp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lyRelativeLayoutVehicaleissues"
+                android:id="@+id/lyRelativelayoutContactInfo"
+                android:layout_marginTop="3mm">
+
+                <TextView
+                    android:id="@+id/tvContactInformation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/robotoreg"
+                    android:text="Contact"
+                    android:textColor="@color/black"
+                    android:textSize="7pt"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etcontact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvContactInformation"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/black_border_edit_text"
+                    android:hint="03086159654"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    android:paddingStart="20dp" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lyRelativelayoutContactInfo"
+                android:id="@+id/lyRelativeLayoutBudget"
+                android:layout_marginTop="3mm">
+
+                <TextView
+                    android:id="@+id/tvBudget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/robotoreg"
+                    android:text="Password"
+                    android:textColor="@color/black"
+                    android:textSize="7pt"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvBudget"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/black_border_edit_text"
+                    android:hint="Enter 6 digit password"
+                    android:padding="10dp"
+                    android:paddingStart="20dp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lyRelativeLayoutBudget"
+                android:id="@+id/lyRelativeLayoutAddress"
+                android:layout_marginTop="15dp"
+                >
+                <TextView
+                    android:id="@+id/tvAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address"
+                    android:textSize="7pt"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/robotoreg"
+                    />
+
+                <EditText
+                    android:id="@+id/etaddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvAddress"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/black_border_edit_text"
+                    android:hint="DHA Phase 2 Sector U Street no 2 House 101"
+                    android:padding="10dp"
+                    android:paddingStart="20dp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lyRelativeLayoutAddress"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="25dp">
+
+                <Button
+                    android:id="@+id/btnfinsih"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/hire_me_btn"
+                    android:text="Finish" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="4mm">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/robotoreg"
+                        android:text="Already a member?"
+                        android:textColor="@color/black"
+                        android:textSize="6pt" />
+
+                    <TextView
+                        android:id="@+id/tvSigin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1mm"
+                        android:fontFamily="@font/robotoreg"
+                        android:text="Sign In"
+                        android:textColor="#0BB1EF"
+                        android:textSize="7pt"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

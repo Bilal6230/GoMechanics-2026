@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginScreen"
+    android:background="@color/white">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg"
+        android:layout_marginBottom="200dp"
+        android:id="@+id/lyRelativeLayoutImg"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:layout_marginLeft="4mm"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="4mm"
+            android:backgroundTint="@color/transparent"
+            app:cardCornerRadius="40dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/lyRelativeLayoutSiginIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5mm">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/robotoreg"
+                        android:text="Sign In"
+                        android:textColor="@color/white"
+                        android:textSize="12pt"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/lyRelativelayoutEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lyRelativeLayoutSiginIn"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="20dp">
+
+                    <EditText
+                        android:id="@+id/etContactNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:background="@drawable/edit_text_signin"
+                        android:hint="Enter Mobile Number"
+                        android:inputType="number"
+                        android:paddingStart="10dp"
+                        android:paddingTop="3mm"
+                        android:paddingBottom="3mm"
+                        android:textColorHint="@color/grey200" />
+
+                    <EditText
+                        android:id="@+id/etPass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/etContactNumber"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/edit_text_signin"
+                        android:hint="Enter Password"
+                        android:inputType="textPassword"
+                        android:paddingStart="10dp"
+                        android:paddingTop="3mm"
+                        android:paddingBottom="3mm"
+                        android:textColorHint="@color/grey200" />
+
+                    <Button
+                        android:id="@+id/btnSignIN"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/etPass"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="5mm"
+                        android:background="@drawable/siginbtn"
+                        android:text="Sign In"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="4mm">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:id="@+id/lyLimearLaytourRegisterNow"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/robotoreg"
+                            android:text="Not a member?"
+                            android:textColor="@color/black"
+                            android:textSize="6pt" />
+
+                        <TextView
+                            android:id="@+id/tvRegisternow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="1mm"
+                            android:fontFamily="@font/robotoreg"
+                            android:text="Register Now"
+                            android:textColor="#0BB1EF"
+                            android:textSize="7pt"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvSiginAsMecahnic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lyLimearLaytourRegisterNow"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="1mm"
+                        android:layout_marginTop="1mm"
+                        android:fontFamily="@font/robotoreg"
+                        android:text="Mechanic SignIn"
+                        android:textColor="#0BB1EF"
+                        android:textSize="7pt"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+</RelativeLayout>
