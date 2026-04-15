@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">GoMechanic\'s</string>
+
     <string-array name="vehicle_types">
+        <item>Select vehicle experience</item>
         <item>Bike</item>
         <item>Car</item>
         <item>Bike/Car</item>
