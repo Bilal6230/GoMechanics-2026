@@ -5,20 +5,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_background"
     tools:context=".mechanics_list">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <RelativeLayout
+            android:id="@+id/lyRelativeLayoutheader"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:id="@+id/lyRelativeLayoutheader"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:background="@drawable/mechanicsbg"
-            >
-        </RelativeLayout>
+            android:background="@drawable/mechanicsbg" />
 
         <RelativeLayout
             android:id="@+id/lyRelativeLayoutBackbutton"
@@ -34,51 +35,43 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/fulltransparen"
                 android:src="@drawable/back" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/robotoreg"
                 android:text="Mechanics"
                 android:textColor="@color/white"
                 android:textSize="12pt"
-                android:textStyle="bold"
-                android:fontFamily="@font/robotoreg"
-                android:layout_centerInParent="true"/>
+                android:textStyle="bold" />
         </RelativeLayout>
-        <RelativeLayout
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_below="@+id/lyRelativeLayoutBackbutton"
-            android:layout_marginTop="6mm">
-            <androidx.cardview.widget.CardView
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/app_surface"
+            app:cardCornerRadius="32dp"
+            app:cardElevation="8dp">
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="4mm"
-                android:layout_marginRight="4mm"
-                android:layout_marginBottom="6mm"
-                android:backgroundTint="@color/transparent"
-                app:cardCornerRadius="40dp">
+                android:paddingTop="48dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp">
 
-                <RelativeLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/RVmechaniclist"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15mm"
-                        >
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/RVmechaniclist"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                        </androidx.recyclerview.widget.RecyclerView>
-
-                    </RelativeLayout>
-
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-        </RelativeLayout>
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
     </RelativeLayout>
 </RelativeLayout>

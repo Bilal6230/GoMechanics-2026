@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".User_Dashbord"
-    android:background="@color/white"
-    >
+    android:background="@color/app_background">
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:id="@+id/lyRelativeTopImage"
@@ -25,9 +24,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="10dp"
-
-                >
+                android:layout_marginTop="10dp">
 
                 <TextView
                     android:id="@+id/tvWelcomeNote"
@@ -46,26 +43,30 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/lyRelativelayoutHeader"
                 android:layout_marginTop="40dp"
-                >
+                android:layout_marginBottom="24dp">
 
                 <EditText
+                    android:id="@+id/etSearchMechanic"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="3mm"
-                    android:layout_marginRight="3mm"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
                     android:background="@drawable/edit_text_signin"
                     android:drawableStart="@drawable/ic_baseline_search_24"
-                    android:hint="  Search Your Mechanic"
-                    android:padding="12dp" />
+                    android:hint="Search your mechanic"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="12dp"
+                    android:textColor="@color/app_text_primary"
+                    android:textColorHint="@color/app_hint" />
             </RelativeLayout>
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/lyRelativeLayoutFirst"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:id="@+id/lyRelativeLayoutFirst"
-            >
+            android:layout_centerInParent="true">
 
             <LinearLayout
                 android:id="@+id/lyLineraLayoutFirst"
@@ -78,7 +79,7 @@
                     android:id="@+id/CardViewHireMechanic"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:backgroundTint="@color/grey100"
+                    android:backgroundTint="@color/app_surface"
                     app:cardCornerRadius="13dp"
                     app:cardElevation="10dp">
 
@@ -104,7 +105,7 @@
                             android:layout_marginBottom="15dp"
                             android:fontFamily="@font/robotoreg"
                             android:text="Hire Mechanic"
-                            android:textColor="@color/black"
+                            android:textColor="@color/app_text_primary"
                             android:textStyle="bold" />
                     </RelativeLayout>
 
@@ -115,7 +116,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginLeft="40dp"
-                    android:backgroundTint="@color/grey100"
+                    android:backgroundTint="@color/app_surface"
                     app:cardCornerRadius="13dp"
                     app:cardElevation="10dp">
 
@@ -130,7 +131,6 @@
                             android:layout_alignParentTop="true"
                             android:layout_centerInParent="true"
                             android:layout_marginTop="10dp"
-                            android:backgroundTint="@color/black"
                             android:src="@drawable/booking" />
 
                         <TextView
@@ -142,7 +142,7 @@
                             android:layout_marginBottom="15dp"
                             android:fontFamily="@font/robotoreg"
                             android:text="Bookings"
-                            android:textColor="@color/black"
+                            android:textColor="@color/app_text_primary"
                             android:textStyle="bold" />
                     </RelativeLayout>
 
@@ -158,7 +158,7 @@
             android:layout_marginTop="40dp"
             android:fontFamily="@font/robotoreg"
             android:text="Recent Mechanics"
-            android:textColor="@color/black"
+            android:textColor="@color/app_text_primary"
             android:textSize="10pt"
             android:textStyle="bold" />
 
@@ -166,9 +166,7 @@
             android:id="@+id/lyRVrecentmechainc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/tvRecentMechanics" >
-
-        </androidx.recyclerview.widget.RecyclerView>
+            android:layout_below="@+id/tvRecentMechanics" />
 
     </RelativeLayout>
 </RelativeLayout>
