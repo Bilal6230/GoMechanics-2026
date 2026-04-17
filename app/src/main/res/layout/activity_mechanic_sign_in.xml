@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginScreen"
-    android:background="@color/white">
+    android:background="@color/app_background">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,7 +26,7 @@
             android:layout_marginLeft="4mm"
             android:layout_marginTop="60dp"
             android:layout_marginRight="4mm"
-            android:backgroundTint="@color/transparent"
+            android:backgroundTint="@color/app_card_tint"
             app:cardCornerRadius="40dp">
 
             <RelativeLayout
@@ -45,7 +45,7 @@
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/robotoreg"
                         android:text="Sign In"
-                        android:textColor="@color/white"
+                        android:textColor="@color/app_link"
                         android:textSize="12pt"
                         android:textStyle="bold" />
                 </RelativeLayout>
@@ -65,12 +65,16 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="7dp"
                         android:background="@drawable/edit_text_signin"
-                        android:hint="Enter Mobile Number"
-                        android:inputType="number"
+                        android:hint="Enter mobile number"
+                        android:inputType="phone"
+                        android:maxLength="11"
+                        android:maxLines="1"
                         android:paddingStart="10dp"
                         android:paddingTop="3mm"
                         android:paddingBottom="3mm"
-                        android:textColorHint="@color/grey200" />
+                        android:textColor="@color/app_text_primary"
+                        android:textColorHint="@color/app_hint"
+                        />
 
                     <EditText
                         android:id="@+id/etMPass"
@@ -79,12 +83,15 @@
                         android:layout_below="@id/etMContactNumber"
                         android:layout_marginTop="20dp"
                         android:background="@drawable/edit_text_signin"
-                        android:hint="Enter Password"
+                        android:hint="Enter password"
                         android:inputType="textPassword"
+                        android:maxLength="20"
+                        android:maxLines="1"
                         android:paddingStart="10dp"
                         android:paddingTop="3mm"
                         android:paddingBottom="3mm"
-                        android:textColorHint="@color/grey200" />
+                        android:textColor="@color/app_text_primary"
+                        android:textColorHint="@color/app_hint"/>
 
                     <Button
                         android:id="@+id/btnMSignIN"
@@ -118,7 +125,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/robotoreg"
                             android:text="Not a member?"
-                            android:textColor="@color/black"
+                            android:textColor="@color/app_text_secondary"
                             android:textSize="6pt" />
 
                         <TextView

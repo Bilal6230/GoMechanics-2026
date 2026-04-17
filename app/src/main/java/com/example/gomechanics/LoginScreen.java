@@ -5,9 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupMenu;
@@ -21,92 +20,168 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.regex.Pattern;
+
 public class LoginScreen extends AppCompatActivity {
-    TextView tvRegister,tvSiginAsMecahnic;
-    FirebaseDatabase FB;
-    DatabaseReference DR;
-    EditText etContactNumber,etPassword;
-    Button btnSignIn;
+
+    private TextView tvRegister, tvSiginAsMecahnic;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference usersRef;
+    private EditText etContactNumber, etPassword;
+    private Button btnSignIn;
+
+    private static final Pattern PAK_PHONE_PATTERN = Pattern.compile("^03\\d{9}$");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
+
+        initViews();
+        initFirebase();
+        setListeners();
+    }
+
+    private void initViews() {
         etContactNumber = findViewById(R.id.etContactNumber);
         etPassword = findViewById(R.id.etPass);
         btnSignIn = findViewById(R.id.btnSignIN);
         tvSiginAsMecahnic = findViewById(R.id.tvSiginAsMecahnic);
-        tvSiginAsMecahnic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginScreen.this, MechanicSignIn.class);
-                startActivity(intent);
-            }
-        });
         tvRegister = findViewById(R.id.tvRegisternow);
-        tvRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                PopupMenu popupMenu = new PopupMenu(LoginScreen.this, view);
-                popupMenu.inflate(R.menu.registration_menu);
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        int itemId = menuItem.getItemId();
-                        if (itemId == R.id.menu_register_user) {
-                            Intent intent = new Intent(LoginScreen.this, Client_SignUp.class);
-                            startActivity(intent);
-                            return true;
-                        } else if (itemId == R.id.menu_register_mechanic) {
-                            Intent intent = new Intent(LoginScreen.this, Mechanics_SignUp.class);
-                            startActivity(intent);
-                            return true;
-                        }
-                        return false;
-                    }
-                });
-                popupMenu.show();
-            }
+    }
+
+    private void initFirebase() {
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        usersRef = firebaseDatabase.getReference("Users");
+    }
+
+    private void setListeners() {
+        tvSiginAsMecahnic.setOnClickListener(view -> {
+            Intent intent = new Intent(LoginScreen.this, MechanicSignIn.class);
+            startActivity(intent);
         });
 
-        btnSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String contactno = etContactNumber.getText().toString();
-                String password = etPassword.getText().toString();
+        tvRegister.setOnClickListener(view -> {
+            PopupMenu popupMenu = new PopupMenu(LoginScreen.this, view);
+            popupMenu.inflate(R.menu.registration_menu);
+            popupMenu.setOnMenuItemClickListener(menuItem -> {
+                int itemId = menuItem.getItemId();
 
-                FB = FirebaseDatabase.getInstance();
-                DR = FB.getReference("Users");
-                Query check_contact = DR.orderByChild("contact").equalTo(contactno);
-                check_contact.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            DataSnapshot userSnapshot = snapshot.getChildren().iterator().next();
-                            String passwordFromDB = userSnapshot.child("password").getValue(String.class);
-                            if (passwordFromDB != null && password.equals(passwordFromDB)) {
-                                String userType = userSnapshot.child("usertype").getValue(String.class);
-                                if (userType != null && userType.equals("User")) {
-                                    String name = userSnapshot.child("name").getValue(String.class);
-                                    Toast.makeText(LoginScreen.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(LoginScreen.this, User_Dashbord.class);
-                                    intent.putExtra("name", name);
-                                    startActivity(intent);
-                                }
-                            } else {
-                                Toast.makeText(LoginScreen.this, "Incorrect password", Toast.LENGTH_SHORT).show();
-                            }
-                        } else {
-                            Toast.makeText(LoginScreen.this, "Invalid contact number", Toast.LENGTH_SHORT).show();
-                        }
-                    }
+                if (itemId == R.id.menu_register_user) {
+                    startActivity(new Intent(LoginScreen.this, Client_SignUp.class));
+                    return true;
+                } else if (itemId == R.id.menu_register_mechanic) {
+                    startActivity(new Intent(LoginScreen.this, Mechanics_SignUp.class));
+                    return true;
+                }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        // Handle database error
-                    }
-                });
-            }
+                return false;
+            });
+            popupMenu.show();
         });
 
+        btnSignIn.setOnClickListener(view -> attemptLogin());
+    }
+
+    private void attemptLogin() {
+        clearErrors();
+
+        String contactNo = etContactNumber.getText().toString().trim();
+        String password = etPassword.getText().toString().trim();
+
+        if (!validateContact(contactNo)) return;
+        if (!validatePassword(password)) return;
+
+        setLoadingState(true);
+
+        Query checkContact = usersRef.orderByChild("contact").equalTo(contactNo);
+        checkContact.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                setLoadingState(false);
+
+                if (!snapshot.exists()) {
+                    etContactNumber.setError("No account found with this mobile number");
+                    etContactNumber.requestFocus();
+                    return;
+                }
+
+                DataSnapshot userSnapshot = snapshot.getChildren().iterator().next();
+                String passwordFromDB = userSnapshot.child("password").getValue(String.class);
+                String userType = userSnapshot.child("usertype").getValue(String.class);
+                String name = userSnapshot.child("name").getValue(String.class);
+
+                if (passwordFromDB == null) {
+                    Toast.makeText(LoginScreen.this, "Password record is missing for this account", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (!password.equals(passwordFromDB)) {
+                    etPassword.setError("Incorrect password");
+                    etPassword.requestFocus();
+                    return;
+                }
+
+                if (userType == null || !userType.equals("User")) {
+                    Toast.makeText(LoginScreen.this, "This account is not allowed on user login", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                Toast.makeText(LoginScreen.this, "Login successful", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(LoginScreen.this, User_Dashbord.class);
+                intent.putExtra("name", name);
+                startActivity(intent);
+                finish();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                setLoadingState(false);
+                Toast.makeText(LoginScreen.this, "Database error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void clearErrors() {
+        etContactNumber.setError(null);
+        etPassword.setError(null);
+    }
+
+    private boolean validateContact(String value) {
+        if (TextUtils.isEmpty(value)) {
+            etContactNumber.setError("Mobile number is required");
+            etContactNumber.requestFocus();
+            return false;
+        }
+
+        if (!PAK_PHONE_PATTERN.matcher(value).matches()) {
+            etContactNumber.setError("Enter a valid number like 03XXXXXXXXX");
+            etContactNumber.requestFocus();
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean validatePassword(String value) {
+        if (TextUtils.isEmpty(value)) {
+            etPassword.setError("Password is required");
+            etPassword.requestFocus();
+            return false;
+        }
+
+        if (value.length() < 6) {
+            etPassword.setError("Password must be at least 6 characters");
+            etPassword.requestFocus();
+            return false;
+        }
+
+        return true;
+    }
+
+    private void setLoadingState(boolean isLoading) {
+        btnSignIn.setEnabled(!isLoading);
+        btnSignIn.setText(isLoading ? "Please wait..." : "Sign In");
     }
 }
