@@ -20,7 +20,7 @@
             android:text="Go Mechanics"
             android:textStyle="bold"
             android:textSize="12pt"
-            android:textColor="@color/white"
+            android:textColor="@color/app_text_primary"
             android:fontFamily="@font/robotoreg"
             android:layout_centerInParent="true"
             />
@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/robotoreg"
                     android:text="Name"
-                    android:textColor="@color/black"
+                    android:textColor="@color/app_text_primary"
                     android:textSize="7pt"
                     android:textStyle="bold" />
 
@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/robotoreg"
                     android:text="Vehical Type"
-                    android:textColor="@color/black"
+                    android:textColor="@color/app_text_primary"
                     android:textSize="7pt"
                     android:textStyle="bold" />
 
@@ -108,7 +108,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/robotoreg"
                     android:text="Contact"
-                    android:textColor="@color/black"
+                    android:textColor="@color/app_text_primary"
                     android:textSize="7pt"
                     android:textStyle="bold" />
 
@@ -138,7 +138,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/robotoreg"
                     android:text="Password"
-                    android:textColor="@color/black"
+                    android:textColor="@color/app_text_primary"
                     android:textSize="7pt"
                     android:textStyle="bold" />
 
@@ -167,7 +167,7 @@
                     android:text="Address"
                     android:textSize="7pt"
                     android:textStyle="bold"
-                    android:textColor="@color/black"
+                    android:textColor="@color/app_text_primary"
                     android:fontFamily="@font/robotoreg"
                     />
 
@@ -214,7 +214,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoreg"
                         android:text="Already a member?"
-                        android:textColor="@color/black"
+                        android:textColor="@color/app_text_primary"
                         android:textSize="6pt" />
 
                     <TextView
@@ -224,7 +224,7 @@
                         android:layout_marginLeft="1mm"
                         android:fontFamily="@font/robotoreg"
                         android:text="Sign In"
-                        android:textColor="#0BB1EF"
+                        android:textColor="@color/app_text_secondary"
                         android:textSize="7pt"
                         android:textStyle="bold" />
                 </LinearLayout>

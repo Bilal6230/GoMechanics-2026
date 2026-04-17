@@ -14,4 +14,19 @@
     <color name="red">#FF0000</color>
     <color name="transparent">#80FFFFFF</color>
     <color name="fulltransparen">#00000000</color>
+
+    <!-- Semantic app colors for light mode -->
+    <color name="app_background">#FFFFFFFF</color>
+    <color name="app_surface">#FFFFFFFF</color>
+    <color name="app_surface_soft">#FFF7F8FA</color>
+    <color name="app_text_primary">#FF111827</color>
+    <color name="app_text_secondary">#FF6B7280</color>
+    <color name="app_hint">#FF9CA3AF</color>
+    <color name="app_stroke">#FFD1D5DB</color>
+    <color name="app_card_tint">#80FFFFFF</color>
+    <color name="app_link">#0BB1EF</color>
+    <color name="app_input_background">#FFFFFFFF</color>
+    <color name="app_input_stroke">#FF111827</color>
 </resources>
+
+
