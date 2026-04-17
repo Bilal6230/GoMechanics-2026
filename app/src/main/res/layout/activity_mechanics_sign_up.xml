@@ -62,7 +62,9 @@
                     android:layout_below="@+id/tvVehicaledecription"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/black_border_edit_text"
-                    android:hint="Umer"
+                    android:hint="Enter your full name"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
                     android:padding="10dp"
                     android:paddingStart="20dp" />
             </RelativeLayout>
@@ -112,7 +114,6 @@
                     android:textColor="@color/black"
                     android:textSize="7pt"
                     android:textStyle="bold" />
-
                 <EditText
                     android:id="@+id/etMcontact"
                     android:layout_width="match_parent"
@@ -120,8 +121,10 @@
                     android:layout_below="@+id/tvContactInformation"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/black_border_edit_text"
-                    android:hint="03086159654"
-                    android:inputType="number"
+                    android:hint="03XXXXXXXXX"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:maxLines="1"
                     android:padding="10dp"
                     android:paddingStart="20dp" />
             </RelativeLayout>
@@ -152,7 +155,10 @@
                     android:layout_below="@+id/tvBudget"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/black_border_edit_text"
-                    android:hint="21"
+                    android:hint="Enter your age"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:maxLines="1"
                     android:padding="10dp"
                     android:paddingStart="20dp" />
             </RelativeLayout>
@@ -184,7 +190,10 @@
                     android:layout_below="@+id/tvAddress"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/black_border_edit_text"
-                    android:hint="Enter 6 digit password"
+                    android:hint="Enter password"
+                    android:inputType="textPassword"
+                    android:maxLength="20"
+                    android:maxLines="1"
                     android:padding="10dp"
                     android:paddingStart="20dp" />
             </RelativeLayout>
