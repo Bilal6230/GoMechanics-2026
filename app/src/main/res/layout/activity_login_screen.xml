@@ -5,15 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginScreen"
-    android:background="@color/app_background">
+    android:background="@color/app_background"
+    tools:context=".LoginScreen">
+
     <RelativeLayout
+        android:id="@+id/lyRelativeLayoutImg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg"
         android:layout_marginBottom="200dp"
-        android:id="@+id/lyRelativeLayoutImg"
-        />
+        android:background="@drawable/bg" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -73,8 +73,7 @@
                         android:paddingTop="3mm"
                         android:paddingBottom="3mm"
                         android:textColor="@color/app_text_primary"
-                        android:textColorHint="@color/app_hint"
-                        />
+                        android:textColorHint="@color/app_hint" />
 
                     <EditText
                         android:id="@+id/etPass"
@@ -83,12 +82,15 @@
                         android:layout_below="@id/etContactNumber"
                         android:layout_marginTop="20dp"
                         android:background="@drawable/edit_text_signin"
+                        android:drawableEnd="@android:drawable/ic_menu_view"
+                        android:drawablePadding="10dp"
                         android:hint="Enter password"
                         android:inputType="textPassword"
                         android:maxLength="20"
                         android:maxLines="1"
                         android:paddingStart="10dp"
                         android:paddingTop="3mm"
+                        android:paddingEnd="14dp"
                         android:paddingBottom="3mm"
                         android:textColor="@color/app_text_primary"
                         android:textColorHint="@color/app_hint" />
@@ -113,12 +115,11 @@
                     android:layout_marginBottom="4mm">
 
                     <LinearLayout
+                        android:id="@+id/lyLimearLaytourRegisterNow"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:orientation="horizontal"
-                        android:id="@+id/lyLimearLaytourRegisterNow"
-                        >
+                        android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"

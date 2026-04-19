@@ -2,11 +2,15 @@ package com.example.gomechanics;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.MenuItem;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+import android.view.MotionEvent;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupMenu;
@@ -30,6 +34,8 @@ public class LoginScreen extends AppCompatActivity {
     private EditText etContactNumber, etPassword;
     private Button btnSignIn;
 
+    private boolean isPasswordVisible = false;
+
     private static final Pattern PAK_PHONE_PATTERN = Pattern.compile("^03\\d{9}$");
 
     @Override
@@ -40,6 +46,7 @@ public class LoginScreen extends AppCompatActivity {
         initViews();
         initFirebase();
         setListeners();
+        setupPasswordToggle();
     }
 
     private void initViews() {
@@ -64,6 +71,7 @@ public class LoginScreen extends AppCompatActivity {
         tvRegister.setOnClickListener(view -> {
             PopupMenu popupMenu = new PopupMenu(LoginScreen.this, view);
             popupMenu.inflate(R.menu.registration_menu);
+
             popupMenu.setOnMenuItemClickListener(menuItem -> {
                 int itemId = menuItem.getItemId();
 
@@ -77,10 +85,53 @@ public class LoginScreen extends AppCompatActivity {
 
                 return false;
             });
+
             popupMenu.show();
         });
 
         btnSignIn.setOnClickListener(view -> attemptLogin());
+    }
+
+    private void setupPasswordToggle() {
+        updatePasswordIcon();
+
+        etPassword.setOnTouchListener((v, event) -> {
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                Drawable drawableEnd = etPassword.getCompoundDrawablesRelative()[2];
+
+                if (drawableEnd != null &&
+                        event.getRawX() >= (etPassword.getRight() - drawableEnd.getBounds().width() - etPassword.getPaddingEnd())) {
+                    togglePasswordVisibility();
+                    etPassword.performClick();
+                    return true;
+                }
+            }
+            return false;
+        });
+    }
+
+    private void togglePasswordVisibility() {
+        if (isPasswordVisible) {
+            etPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+        } else {
+            etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+        }
+
+        isPasswordVisible = !isPasswordVisible;
+        etPassword.setSelection(etPassword.getText().length());
+        updatePasswordIcon();
+    }
+
+    private void updatePasswordIcon() {
+        Drawable eyeIcon;
+
+        if (isPasswordVisible) {
+            eyeIcon = ContextCompat.getDrawable(this, android.R.drawable.ic_menu_close_clear_cancel);
+        } else {
+            eyeIcon = ContextCompat.getDrawable(this, android.R.drawable.ic_menu_view);
+        }
+
+        etPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, eyeIcon, null);
     }
 
     private void attemptLogin() {
