@@ -1,254 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_background"
     tools:context=".address_Information">
+
     <RelativeLayout
+        android:id="@+id/lyRelativeLayoutPersnolaInformation"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:id="@+id/lyRelativeLayoutPersnolaInformation"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:background="@drawable/bg">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Go Mechanics"
-            android:textStyle="bold"
-            android:textSize="12pt"
-            android:textColor="@color/white"
-            android:fontFamily="@font/robotoreg"
             android:layout_centerInParent="true"
-            />
+            android:fontFamily="@font/robotoreg"
+            android:text="Go Mechanics"
+            android:textColor="@color/white"
+            android:textSize="12pt"
+            android:textStyle="bold" />
     </RelativeLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/lyRelativeLayoutPersnolaInformation"
-        >
+        android:layout_below="@id/lyRelativeLayoutPersnolaInformation"
+        android:background="@color/app_background"
+        android:fillViewport="true">
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/lyRelativeLayoutPersnolaInformation"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            >
+            android:background="@color/app_background">
 
+            <TextView
+                android:id="@+id/tvMechanicSignupTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/robotoreg"
+                android:text="Mechanic Sign Up"
+                android:textColor="@color/app_text_primary"
+                android:textSize="11pt"
+                android:textStyle="bold" />
 
-            <RelativeLayout
+            <TextView
+                android:id="@+id/tvFullNameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvMechanicSignupTitle"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/robotoreg"
+                android:text="Full Name"
+                android:textColor="@color/app_text_primary"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5mm"
-                android:id="@+id/lyRelativeLayoutVehicaleDecription"
-                >
+                android:layout_below="@id/tvFullNameLabel"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/black_border_edit_text"
+                android:hint="Enter your full name"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:paddingStart="18dp"
+                android:textColor="@color/app_text_primary"
+                android:textColorHint="@color/app_hint" />
 
-                <TextView
-                    android:id="@+id/tvVehicaledecription"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotoreg"
-                    android:text="Username"
-                    android:textColor="@color/black"
-                    android:textSize="7pt"
-                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvContactLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etname"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/robotoreg"
+                android:text="Contact Number"
+                android:textColor="@color/app_text_primary"
+                android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/etMname"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvVehicaledecription"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/black_border_edit_text"
-                    android:hint="Enter your full name"
-                    android:inputType="textPersonName"
-                    android:maxLines="1"
-                    android:padding="10dp"
-                    android:paddingStart="20dp" />
-            </RelativeLayout>
-            <RelativeLayout
+            <EditText
+                android:id="@+id/etcontact"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2mm"
-                android:id="@+id/lyRelativeLayoutVehicaleissues"
-                android:layout_below="@+id/lyRelativeLayoutVehicaleDecription"
-                >
+                android:layout_below="@id/tvContactLabel"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/black_border_edit_text"
+                android:hint="Enter contact number"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:paddingStart="18dp"
+                android:textColor="@color/app_text_primary"
+                android:textColorHint="@color/app_hint" />
 
-                <TextView
-                    android:id="@+id/tvVehicaleissues"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotoreg"
-                    android:text="Vehical Exper"
-                    android:textColor="@color/black"
-                    android:textSize="7pt"
-                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvPasswordLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etcontact"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/robotoreg"
+                android:text="Password"
+                android:textColor="@color/app_text_primary"
+                android:textStyle="bold" />
 
-                <Spinner
-                    android:id="@+id/etMvehicaletype"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvVehicaleissues"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/black_border_edit_text"
-                    android:padding="10dp"
-                    android:paddingStart="20dp"
-                    android:spinnerMode="dropdown" />
-
-            </RelativeLayout>
-            <RelativeLayout
+            <EditText
+                android:id="@+id/etpassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/lyRelativeLayoutVehicaleissues"
-                android:id="@+id/lyRelativelayoutContactInfo"
-                android:layout_marginTop="3mm">
+                android:layout_below="@id/tvPasswordLabel"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/black_border_edit_text"
+                android:hint="Enter password"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:paddingStart="18dp"
+                android:textColor="@color/app_text_primary"
+                android:textColorHint="@color/app_hint" />
 
-                <TextView
-                    android:id="@+id/tvContactInformation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotoreg"
-                    android:text="Contact"
-                    android:textColor="@color/black"
-                    android:textSize="7pt"
-                    android:textStyle="bold" />
-                <EditText
-                    android:id="@+id/etMcontact"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvContactInformation"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/black_border_edit_text"
-                    android:hint="03XXXXXXXXX"
-                    android:inputType="phone"
-                    android:maxLength="11"
-                    android:maxLines="1"
-                    android:padding="10dp"
-                    android:paddingStart="20dp" />
-            </RelativeLayout>
+            <TextView
+                android:id="@+id/tvCnicLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etpassword"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/robotoreg"
+                android:text="CNIC"
+                android:textColor="@color/app_text_primary"
+                android:textStyle="bold" />
 
-
-
-            <RelativeLayout
+            <EditText
+                android:id="@+id/etcnic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/lyRelativelayoutContactInfo"
-                android:id="@+id/lyRelativeLayoutBudget"
-                android:layout_marginTop="3mm">
+                android:layout_below="@id/tvCnicLabel"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/black_border_edit_text"
+                android:hint="Enter CNIC"
+                android:inputType="number"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:paddingStart="18dp"
+                android:textColor="@color/app_text_primary"
+                android:textColorHint="@color/app_hint" />
 
-                <TextView
-                    android:id="@+id/tvBudget"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotoreg"
-                    android:text="Age"
-                    android:textColor="@color/black"
-                    android:textSize="7pt"
-                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvVehicleTypeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etcnic"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/robotoreg"
+                android:text="Vehicle Type"
+                android:textColor="@color/app_text_primary"
+                android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/etMage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvBudget"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/black_border_edit_text"
-                    android:hint="Enter your age"
-                    android:inputType="number"
-                    android:maxLength="2"
-                    android:maxLines="1"
-                    android:padding="10dp"
-                    android:paddingStart="20dp" />
-            </RelativeLayout>
-
-
-
-            <RelativeLayout
+            <EditText
+                android:id="@+id/etvehicaletype"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/lyRelativeLayoutBudget"
-                android:id="@+id/lyRelativeLayoutAddress"
-                android:layout_marginTop="15dp"
-                >
+                android:layout_below="@id/tvVehicleTypeLabel"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/black_border_edit_text"
+                android:hint="Enter vehicle type"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:paddingStart="18dp"
+                android:textColor="@color/app_text_primary"
+                android:textColorHint="@color/app_hint" />
 
-                <TextView
-                    android:id="@+id/tvAddress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/robotoreg"
-                    android:text="Password"
-                    android:textColor="@color/black"
-                    android:textSize="7pt"
-                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvWorkshopLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etvehicaletype"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/robotoreg"
+                android:text="Workshop / Experience"
+                android:textColor="@color/app_text_primary"
+                android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/etMpassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvAddress"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/black_border_edit_text"
-                    android:hint="Enter password"
-                    android:inputType="textPassword"
-                    android:maxLength="20"
-                    android:maxLines="1"
-                    android:padding="10dp"
-                    android:paddingStart="20dp" />
-            </RelativeLayout>
-            <RelativeLayout
-
+            <EditText
+                android:id="@+id/etworkshop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/lyRelativeLayoutAddress"
-                android:id="@+id/lyRelativeLayoutFinishbtn"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="25dp">
+                android:layout_below="@id/tvWorkshopLabel"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/black_border_edit_text"
+                android:hint="Enter workshop details or experience"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:paddingStart="18dp"
+                android:textColor="@color/app_text_primary"
+                android:textColorHint="@color/app_hint" />
 
-                <Button
-                    android:id="@+id/btnMfinsih"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/hire_me_btn"
-                    android:text="Finish" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tvAddressLabel"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/lyRelativeLayoutFinishbtn"
-                >
+                android:layout_below="@id/etworkshop"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/robotoreg"
+                android:text="Address"
+                android:textColor="@color/app_text_primary"
+                android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="5mm">
+            <EditText
+                android:id="@+id/etaddress"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_below="@id/tvAddressLabel"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/black_border_edit_text"
+                android:gravity="top|start"
+                android:hint="Enter address"
+                android:inputType="textMultiLine"
+                android:padding="12dp"
+                android:paddingStart="18dp"
+                android:textColor="@color/app_text_primary"
+                android:textColorHint="@color/app_hint" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/robotoreg"
-                        android:text="Already a member?"
-                        android:textColor="@color/black"
-                        android:textSize="6pt" />
+            <Button
+                android:id="@+id/btnfinsih"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etaddress"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="28dp"
+                android:background="@drawable/hire_me_btn"
+                android:paddingLeft="28dp"
+                android:paddingTop="10dp"
+                android:paddingRight="28dp"
+                android:paddingBottom="10dp"
+                android:text="Finish"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/tvSigin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="1mm"
-                        android:fontFamily="@font/robotoreg"
-                        android:text="Sign In"
-                        android:textColor="#0BB1EF"
-                        android:textSize="7pt"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-            </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
+
 </RelativeLayout>

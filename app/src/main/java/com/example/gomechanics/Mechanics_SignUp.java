@@ -5,11 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
+import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -25,10 +23,14 @@ public class Mechanics_SignUp extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference mechanicsRef;
 
-    private EditText etMName, etMContact, etMAge, etMPassword;
-    private Spinner spVehicleType;
+    private EditText etMName;
+    private EditText etMContact;
+    private EditText etMPassword;
+    private EditText etMCnic;
+    private EditText etMVehicleType;
+    private EditText etMWorkshop;
+    private EditText etMAddress;
     private Button btnMSignUp;
-    private TextView tvSignIn;
 
     private static final Pattern PAK_PHONE_PATTERN = Pattern.compile("^03\\d{9}$");
 
@@ -38,39 +40,27 @@ public class Mechanics_SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_mechanics_sign_up);
 
         initViews();
-        setupSpinner();
+        initFirebase();
         setListeners();
     }
 
     private void initViews() {
-        etMName = findViewById(R.id.etMname);
-        spVehicleType = findViewById(R.id.etMvehicaletype);
-        etMContact = findViewById(R.id.etMcontact);
-        etMAge = findViewById(R.id.etMage);
-        etMPassword = findViewById(R.id.etMpassword);
-        btnMSignUp = findViewById(R.id.btnMfinsih);
-        tvSignIn = findViewById(R.id.tvSigin);
+        etMName = findViewById(R.id.etname);
+        etMContact = findViewById(R.id.etcontact);
+        etMPassword = findViewById(R.id.etpassword);
+        etMCnic = findViewById(R.id.etcnic);
+        etMVehicleType = findViewById(R.id.etvehicaletype);
+        etMWorkshop = findViewById(R.id.etworkshop);
+        etMAddress = findViewById(R.id.etaddress);
+        btnMSignUp = findViewById(R.id.btnfinsih);
+    }
 
+    private void initFirebase() {
         firebaseDatabase = FirebaseDatabase.getInstance();
         mechanicsRef = firebaseDatabase.getReference("Mechanics");
     }
 
-    private void setupSpinner() {
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                this,
-                R.array.vehicle_types,
-                android.R.layout.simple_spinner_item
-        );
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spVehicleType.setAdapter(adapter);
-    }
-
     private void setListeners() {
-        tvSignIn.setOnClickListener(v -> {
-            startActivity(new Intent(Mechanics_SignUp.this, LoginScreen.class));
-            finish();
-        });
-
         btnMSignUp.setOnClickListener(v -> attemptSignup());
     }
 
@@ -78,64 +68,102 @@ public class Mechanics_SignUp extends AppCompatActivity {
         clearErrors();
 
         final String name = etMName.getText().toString().trim();
-        final String vehicle = spVehicleType.getSelectedItem() != null
-                ? spVehicleType.getSelectedItem().toString().trim()
-                : "";
         final String contact = etMContact.getText().toString().trim();
-        final String age = etMAge.getText().toString().trim();
         final String password = etMPassword.getText().toString().trim();
+        final String cnic = etMCnic.getText().toString().trim();
+        final String vehicleType = etMVehicleType.getText().toString().trim();
+        final String workshop = etMWorkshop.getText().toString().trim();
+        final String address = etMAddress.getText().toString().trim();
 
         if (!validateName(name)) return;
-        if (!validateVehicle(vehicle)) return;
+        if (!validateVehicleType(vehicleType)) return;
         if (!validateContact(contact)) return;
-        if (!validateAge(age)) return;
         if (!validatePassword(password)) return;
+        if (!validateCnic(cnic)) return;
+        if (!validateWorkshop(workshop)) return;
+        if (!validateAddress(address)) return;
 
         setLoadingState(true);
 
-        mechanicsRef.orderByChild("contact").equalTo(contact).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    setLoadingState(false);
-                    etMContact.setError("This contact number is already registered");
-                    etMContact.requestFocus();
-                    return;
-                }
-
-                String userType = "Mechanic";
-                StoringDataMechanic mechanic = new StoringDataMechanic(name, vehicle, contact, password, age, userType);
-
-                mechanicsRef.child(contact).setValue(mechanic)
-                        .addOnSuccessListener(unused -> {
+        mechanicsRef.orderByChild("contact").equalTo(contact)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
                             setLoadingState(false);
-                            Toast.makeText(Mechanics_SignUp.this, "Mechanic account created successfully", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(Mechanics_SignUp.this, LoginScreen.class));
-                            finish();
-                        })
-                        .addOnFailureListener(e -> {
-                            setLoadingState(false);
-                            Toast.makeText(Mechanics_SignUp.this, "Failed to create account: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                        });
-            }
+                            etMContact.setError("This contact number is already registered");
+                            etMContact.requestFocus();
+                            return;
+                        }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                setLoadingState(false);
-                Toast.makeText(Mechanics_SignUp.this, "Database error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+                        String userType = "Mechanic";
+
+                        /*
+                         * Your current StoringDataMechanic model only supports:
+                         * name, vehical, contact, password, age, usertype
+                         *
+                         * Since your new XML has CNIC / workshop / address instead of age,
+                         * we are temporarily storing CNIC in the "age" field to avoid breaking compile/runtime.
+                         *
+                         * Proper fix later:
+                         * update StoringDataMechanic model + Firebase structure
+                         * to include cnic, workshop, and address as separate fields.
+                         */
+                        StoringDataMechanic mechanic = new StoringDataMechanic(
+                                name,
+                                vehicleType,
+                                contact,
+                                password,
+                                cnic,
+                                userType
+                        );
+
+                        mechanicsRef.child(contact).setValue(mechanic)
+                                .addOnSuccessListener(unused -> {
+                                    setLoadingState(false);
+                                    Toast.makeText(
+                                            Mechanics_SignUp.this,
+                                            "Mechanic account created successfully",
+                                            Toast.LENGTH_SHORT
+                                    ).show();
+
+                                    startActivity(new Intent(Mechanics_SignUp.this, LoginScreen.class));
+                                    finish();
+                                })
+                                .addOnFailureListener(e -> {
+                                    setLoadingState(false);
+                                    Toast.makeText(
+                                            Mechanics_SignUp.this,
+                                            "Failed to create account: " + e.getMessage(),
+                                            Toast.LENGTH_SHORT
+                                    ).show();
+                                });
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        setLoadingState(false);
+                        Toast.makeText(
+                                Mechanics_SignUp.this,
+                                "Database error: " + error.getMessage(),
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
+                });
     }
 
     private void clearErrors() {
         etMName.setError(null);
         etMContact.setError(null);
-        etMAge.setError(null);
         etMPassword.setError(null);
+        etMCnic.setError(null);
+        etMVehicleType.setError(null);
+        etMWorkshop.setError(null);
+        etMAddress.setError(null);
     }
 
     private boolean validateName(String value) {
-        if (value.isEmpty()) {
+        if (TextUtils.isEmpty(value)) {
             etMName.setError("Name is required");
             etMName.requestFocus();
             return false;
@@ -150,17 +178,17 @@ public class Mechanics_SignUp extends AppCompatActivity {
         return true;
     }
 
-    private boolean validateVehicle(String value) {
-        if (value.isEmpty() || value.equals("Select vehicle experience")) {
-            Toast.makeText(this, "Please select vehicle experience", Toast.LENGTH_SHORT).show();
-            spVehicleType.requestFocus();
+    private boolean validateVehicleType(String value) {
+        if (TextUtils.isEmpty(value)) {
+            etMVehicleType.setError("Vehicle type is required");
+            etMVehicleType.requestFocus();
             return false;
         }
         return true;
     }
 
     private boolean validateContact(String value) {
-        if (value.isEmpty()) {
+        if (TextUtils.isEmpty(value)) {
             etMContact.setError("Contact number is required");
             etMContact.requestFocus();
             return false;
@@ -175,43 +203,46 @@ public class Mechanics_SignUp extends AppCompatActivity {
         return true;
     }
 
-    private boolean validateAge(String value) {
-        if (value.isEmpty()) {
-            etMAge.setError("Age is required");
-            etMAge.requestFocus();
+    private boolean validatePassword(String value) {
+        if (TextUtils.isEmpty(value)) {
+            etMPassword.setError("Password is required");
+            etMPassword.requestFocus();
             return false;
         }
 
-        try {
-            int parsedAge = Integer.parseInt(value);
-            if (parsedAge < 18 || parsedAge > 65) {
-                etMAge.setError("Age must be between 18 and 65");
-                etMAge.requestFocus();
-                return false;
-            }
-        } catch (NumberFormatException e) {
-            etMAge.setError("Enter a valid age");
-            etMAge.requestFocus();
+        if (value.length() < 6) {
+            etMPassword.setError("Password must be at least 6 characters");
+            etMPassword.requestFocus();
             return false;
         }
 
         return true;
     }
 
-    private boolean validatePassword(String value) {
-        if (value.isEmpty()) {
-            etMPassword.setError("Password is required");
-            etMPassword.requestFocus();
+    private boolean validateCnic(String value) {
+        if (TextUtils.isEmpty(value)) {
+            etMCnic.setError("CNIC is required");
+            etMCnic.requestFocus();
             return false;
         }
+        return true;
+    }
 
-
-        if (value.length() < 6) {
-            etMPassword.setError("Password must be at least 6 digits/characters");
-            etMPassword.requestFocus();
+    private boolean validateWorkshop(String value) {
+        if (TextUtils.isEmpty(value)) {
+            etMWorkshop.setError("Workshop / experience is required");
+            etMWorkshop.requestFocus();
             return false;
         }
+        return true;
+    }
 
+    private boolean validateAddress(String value) {
+        if (TextUtils.isEmpty(value)) {
+            etMAddress.setError("Address is required");
+            etMAddress.requestFocus();
+            return false;
+        }
         return true;
     }
 

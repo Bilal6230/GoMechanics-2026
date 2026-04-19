@@ -2,10 +2,15 @@ package com.example.gomechanics;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+import android.view.MotionEvent;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -28,6 +33,8 @@ public class MechanicSignIn extends AppCompatActivity {
     private EditText etMContactNumber, etMPassword;
     private Button btnMSignIn;
 
+    private boolean isPasswordVisible = false;
+
     private static final Pattern PAK_PHONE_PATTERN = Pattern.compile("^03\\d{9}$");
 
     @Override
@@ -38,6 +45,7 @@ public class MechanicSignIn extends AppCompatActivity {
         initViews();
         initFirebase();
         setListeners();
+        setupPasswordToggle();
     }
 
     private void initViews() {
@@ -65,6 +73,43 @@ public class MechanicSignIn extends AppCompatActivity {
         });
 
         btnMSignIn.setOnClickListener(view -> attemptLogin());
+    }
+
+    private void setupPasswordToggle() {
+        updatePasswordIcon();
+
+        etMPassword.setOnTouchListener((v, event) -> {
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                Drawable drawableEnd = etMPassword.getCompoundDrawablesRelative()[2];
+
+                if (drawableEnd != null &&
+                        event.getRawX() >= (etMPassword.getRight()
+                                - drawableEnd.getBounds().width()
+                                - etMPassword.getPaddingEnd())) {
+                    togglePasswordVisibility();
+                    etMPassword.performClick();
+                    return true;
+                }
+            }
+            return false;
+        });
+    }
+
+    private void togglePasswordVisibility() {
+        if (isPasswordVisible) {
+            etMPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+        } else {
+            etMPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+        }
+
+        isPasswordVisible = !isPasswordVisible;
+        etMPassword.setSelection(etMPassword.getText().length());
+        updatePasswordIcon();
+    }
+
+    private void updatePasswordIcon() {
+        Drawable eyeIcon = ContextCompat.getDrawable(this, android.R.drawable.ic_menu_view);
+        etMPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, eyeIcon, null);
     }
 
     private void attemptLogin() {
