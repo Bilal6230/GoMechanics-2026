@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".address_Information">
+    tools:context=".address_Information"
+    android:background="@color/app_background">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -29,12 +30,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/lyRelativeLayoutPersnolaInformation"
+        android:background="@color/app_background"
         >
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/lyRelativeLayoutPersnolaInformation"
             android:layout_margin="10dp"
+            android:background="@color/app_background"
             >
 
 
@@ -66,7 +69,11 @@
                     android:inputType="textPersonName"
                     android:maxLines="1"
                     android:padding="10dp"
-                    android:paddingStart="20dp" />
+                    android:paddingStart="20dp"
+                    android:textColor="@color/app_text_primary"
+                    android:textColorHint="@color/app_hint"
+                    android:textCursorDrawable="@null"
+                    />
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -97,7 +104,10 @@
                     android:inputType="textCapWords"
                     android:maxLines="1"
                     android:padding="10dp"
-                    android:paddingStart="20dp" />
+                    android:paddingStart="20dp"
+                    android:textColor="@color/app_text_primary"
+                    android:textColorHint="@color/app_hint"
+                    android:textCursorDrawable="@null"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -128,7 +138,10 @@
                     android:maxLength="11"
                     android:maxLines="1"
                     android:padding="10dp"
-                    android:paddingStart="20dp" />
+                    android:paddingStart="20dp"
+                    android:textColor="@color/app_text_primary"
+                    android:textColorHint="@color/app_hint"
+                    android:textCursorDrawable="@null"/>
 
             </RelativeLayout>
             <RelativeLayout
@@ -146,7 +159,8 @@
                     android:text="Password"
                     android:textColor="@color/app_text_primary"
                     android:textSize="7pt"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    />
 
                 <EditText
                     android:id="@+id/etpassword"
@@ -157,7 +171,11 @@
                     android:background="@drawable/black_border_edit_text"
                     android:hint="Enter 6 digit password"
                     android:padding="10dp"
-                    android:paddingStart="20dp" />
+                    android:paddingStart="20dp"
+                    android:textColor="@color/app_text_primary"
+                    android:textColorHint="@color/app_hint"
+                    android:textCursorDrawable="@null"
+                    />
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -188,7 +206,10 @@
                     android:inputType="textPostalAddress"
                     android:minLines="2"
                     android:padding="10dp"
-                    android:paddingStart="20dp" />
+                    android:paddingStart="20dp"
+                    android:textColor="@color/app_text_primary"
+                    android:textColorHint="@color/app_hint"
+                    android:textCursorDrawable="@null"/>
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -203,7 +224,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:background="@drawable/hire_me_btn"
-                    android:text="Finish" />
+                    android:text="Finish"
+                    android:textColor="@color/black" />
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"

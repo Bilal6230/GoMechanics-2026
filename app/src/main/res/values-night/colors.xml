@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#E9E0F4</color>
+    <color name="purple_500">#9C60F1</color>
+    <color name="purple_700">#5E32C2</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="button_bg">#0F439E</color>
+    <color name="grey">#AAA8A8</color>
+    <color name="grey200">#979696</color>
+    <color name="grey100">#E4E4E4</color>
+    <color name="red">#FF0000</color>
+    <color name="transparent">#80FFFFFF</color>
+    <color name="fulltransparen">#00000000</color>
+
+    <color name="app_background">#FFFFFFFF</color>
+    <color name="app_surface">#FFFFFFFF</color>
+    <color name="app_surface_soft">#FFF8FAFC</color>
+    <color name="app_text_primary">#FF111827</color>
+    <color name="app_text_secondary">#FF475569</color>
+    <color name="app_hint">#FF64748B</color>
+    <color name="app_stroke">#FFD1D5DB</color>
+    <color name="app_card_tint">#0D000000</color>
+    <color name="app_link">#FF2563EB</color>
+    <color name="app_input_background">#FFFFFFFF</color>
+    <color name="app_input_stroke">#FFCBD5E1</color>
+</resources>
