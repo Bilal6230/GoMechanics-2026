@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_background"
-    tools:context=".User_Dashbord">
+    tools:context=".User_Dashbord"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -57,28 +58,28 @@
                     android:textStyle="bold" />
             </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/lyRelativelayoutHeader"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="24dp">
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@+id/lyRelativelayoutHeader"-->
+<!--                android:layout_marginTop="40dp"-->
+<!--                android:layout_marginBottom="24dp">-->
 
-                <EditText
-                    android:id="@+id/etSearchMechanic"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"
-                    android:background="@drawable/edit_text_signin"
-                    android:drawableStart="@drawable/ic_baseline_search_24"
-                    android:hint="Search your mechanic"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:padding="12dp"
-                    android:textColor="@color/app_text_primary"
-                    android:textColorHint="@color/app_hint" />
-            </RelativeLayout>
+<!--                <EditText-->
+<!--                    android:id="@+id/etSearchMechanic"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="12dp"-->
+<!--                    android:layout_marginRight="12dp"-->
+<!--                    android:background="@drawable/edit_text_signin"-->
+<!--                    android:drawableStart="@drawable/ic_baseline_search_24"-->
+<!--                    android:hint="Search your mechanic"-->
+<!--                    android:inputType="text"-->
+<!--                    android:maxLines="1"-->
+<!--                    android:padding="12dp"-->
+<!--                    android:textColor="@color/app_text_primary"-->
+<!--                    android:textColorHint="@color/app_hint" />-->
+<!--            </RelativeLayout>-->
         </RelativeLayout>
 
         <RelativeLayout
@@ -188,4 +189,34 @@
             android:layout_below="@+id/tvRecentMechanics" />
 
     </RelativeLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/CardViewAIBot"
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="88dp"
+        app:cardCornerRadius="22dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#FFFFFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#FFFFFF"
+            android:padding="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AI Assistant"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#039BE5" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 </RelativeLayout>

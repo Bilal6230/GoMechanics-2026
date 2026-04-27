@@ -11,7 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
-
+import android.view.View;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,10 +19,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import androidx.cardview.widget.CardView;
 
 public class User_Dashbord extends AppCompatActivity {
 
-    CardView cvhiremechanic, cvbooking, cvmechainc;
+    CardView cvhiremechanic, cvbooking, cvmechainc, cvAIBot;
     TextView tvWelcomeNote;
     RecyclerView RV;
     FirebaseDatabase FB;
@@ -33,11 +34,21 @@ public class User_Dashbord extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_dashbord);
 
         cvhiremechanic = findViewById(R.id.CardViewHireMechanic);
         cvbooking = findViewById(R.id.CardViewBooking);
+        cvAIBot = findViewById(R.id.CardViewAIBot);
+
+        cvAIBot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(User_Dashbord.this, ChatBotActivity.class);
+                startActivity(intent);
+            }
+        });
         tvWelcomeNote = findViewById(R.id.tvWelcomeNote);
         RV = findViewById(R.id.lyRVrecentmechainc);
         btnLogoutUser = findViewById(R.id.btnLogoutUser);
