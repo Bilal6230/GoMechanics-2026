@@ -1,256 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_background"
-    tools:context=".address_Information">
+    android:background="@drawable/bg_screen"
+    tools:context=".Mechanics_SignUp">
 
     <RelativeLayout
-        android:id="@+id/lyRelativeLayoutPersnolaInformation"
+        android:id="@+id/mechanicSignupHeader"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/bg">
+        android:layout_height="180dp"
+        android:background="@drawable/bg_header_rounded"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="38dp">
 
         <TextView
+            android:id="@+id/tvMechanicSignupTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:fontFamily="@font/robotoreg"
-            android:text="Go Mechanics"
-            android:textColor="@color/white"
-            android:textSize="12pt"
-            android:textStyle="bold" />
+            android:text="Create Mechanic Account"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/robotoreg" />
+
+        <TextView
+            android:id="@+id/tvMechanicSignupSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvMechanicSignupTitle"
+            android:layout_marginTop="8dp"
+            android:text="Register to receive service orders"
+            android:textColor="#EAF7FF"
+            android:textSize="15sp"
+            android:fontFamily="@font/robotoreg" />
+
     </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/lyRelativeLayoutPersnolaInformation"
-        android:background="@color/app_background"
+        android:layout_below="@id/mechanicSignupHeader"
+        android:layout_marginTop="-40dp"
         android:fillViewport="true">
 
-        <RelativeLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@color/app_background">
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="10dp"
+            app:cardBackgroundColor="#FFFFFF">
 
-            <TextView
-                android:id="@+id/tvMechanicSignupTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="12dp"
-                android:fontFamily="@font/robotoreg"
-                android:text="Mechanic Sign Up"
-                android:textColor="@color/app_text_primary"
-                android:textSize="11pt"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvFullNameLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvMechanicSignupTitle"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/robotoreg"
-                android:text="Full Name"
-                android:textColor="@color/app_text_primary"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/etname"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tvFullNameLabel"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/black_border_edit_text"
-                android:hint="Enter your full name"
-                android:inputType="textPersonName"
-                android:maxLines="1"
-                android:padding="12dp"
-                android:paddingStart="18dp"
-                android:textColor="@color/app_text_primary"
-                android:textColorHint="@color/app_hint" />
+                android:orientation="vertical"
+                android:background="#FFFFFF"
+                android:padding="22dp">
 
-            <TextView
-                android:id="@+id/tvContactLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/etname"
-                android:layout_marginTop="18dp"
-                android:fontFamily="@font/robotoreg"
-                android:text="Contact Number"
-                android:textColor="@color/app_text_primary"
-                android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mechanic Details"
+                    android:textColor="@color/gm_text_primary"
+                    android:textSize="21sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/robotoreg" />
 
-            <EditText
-                android:id="@+id/etcontact"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvContactLabel"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/black_border_edit_text"
-                android:hint="Enter contact number"
-                android:inputType="phone"
-                android:maxLines="1"
-                android:padding="12dp"
-                android:paddingStart="18dp"
-                android:textColor="@color/app_text_primary"
-                android:textColorHint="@color/app_hint" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Tell users about your experience"
+                    android:textColor="@color/gm_text_secondary"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/robotoreg" />
 
-            <TextView
-                android:id="@+id/tvPasswordLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/etcontact"
-                android:layout_marginTop="18dp"
-                android:fontFamily="@font/robotoreg"
-                android:text="Password"
-                android:textColor="@color/app_text_primary"
-                android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:text="Full Name"
+                    android:textColor="@color/gm_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/etpassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvPasswordLabel"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/black_border_edit_text"
-                android:hint="Enter password"
-                android:inputType="text"
-                android:maxLines="1"
-                android:padding="12dp"
-                android:paddingStart="18dp"
-                android:textColor="@color/app_text_primary"
-                android:textColorHint="@color/app_hint" />
+                <EditText
+                    android:id="@+id/etname"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_input"
+                    android:hint="Enter your full name"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="@color/gm_text_primary"
+                    android:textColorHint="@color/gm_text_muted"
+                    android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/tvCnicLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/etpassword"
-                android:layout_marginTop="18dp"
-                android:fontFamily="@font/robotoreg"
-                android:text="CNIC"
-                android:textColor="@color/app_text_primary"
-                android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Vehicle Type / Experience"
+                    android:textColor="@color/gm_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/etcnic"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvCnicLabel"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/black_border_edit_text"
-                android:hint="Enter CNIC"
-                android:inputType="number"
-                android:maxLines="1"
-                android:padding="12dp"
-                android:paddingStart="18dp"
-                android:textColor="@color/app_text_primary"
-                android:textColorHint="@color/app_hint" />
+                <EditText
+                    android:id="@+id/etvehicaletype"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_input"
+                    android:hint="Car / Bike / Engine Expert"
+                    android:inputType="textCapWords"
+                    android:maxLines="1"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="@color/gm_text_primary"
+                    android:textColorHint="@color/gm_text_muted"
+                    android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/tvVehicleTypeLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/etcnic"
-                android:layout_marginTop="18dp"
-                android:fontFamily="@font/robotoreg"
-                android:text="Vehicle Type"
-                android:textColor="@color/app_text_primary"
-                android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Contact Number"
+                    android:textColor="@color/gm_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/etvehicaletype"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvVehicleTypeLabel"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/black_border_edit_text"
-                android:hint="Enter vehicle type"
-                android:inputType="text"
-                android:maxLines="1"
-                android:padding="12dp"
-                android:paddingStart="18dp"
-                android:textColor="@color/app_text_primary"
-                android:textColorHint="@color/app_hint" />
+                <EditText
+                    android:id="@+id/etcontact"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_input"
+                    android:hint="03XXXXXXXXX"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:maxLines="1"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="@color/gm_text_primary"
+                    android:textColorHint="@color/gm_text_muted"
+                    android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/tvWorkshopLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/etvehicaletype"
-                android:layout_marginTop="18dp"
-                android:fontFamily="@font/robotoreg"
-                android:text="Workshop / Experience"
-                android:textColor="@color/app_text_primary"
-                android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="CNIC"
+                    android:textColor="@color/gm_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/etworkshop"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvWorkshopLabel"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/black_border_edit_text"
-                android:hint="Enter workshop details or experience"
-                android:inputType="text"
-                android:maxLines="1"
-                android:padding="12dp"
-                android:paddingStart="18dp"
-                android:textColor="@color/app_text_primary"
-                android:textColorHint="@color/app_hint" />
+                <EditText
+                    android:id="@+id/etcnic"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_input"
+                    android:hint="Enter CNIC number"
+                    android:inputType="number"
+                    android:maxLength="13"
+                    android:maxLines="1"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="@color/gm_text_primary"
+                    android:textColorHint="@color/gm_text_muted"
+                    android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/tvAddressLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/etworkshop"
-                android:layout_marginTop="18dp"
-                android:fontFamily="@font/robotoreg"
-                android:text="Address"
-                android:textColor="@color/app_text_primary"
-                android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Workshop / Experience Details"
+                    android:textColor="@color/gm_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/etaddress"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_below="@id/tvAddressLabel"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/black_border_edit_text"
-                android:gravity="top|start"
-                android:hint="Enter address"
-                android:inputType="textMultiLine"
-                android:padding="12dp"
-                android:paddingStart="18dp"
-                android:textColor="@color/app_text_primary"
-                android:textColorHint="@color/app_hint" />
+                <EditText
+                    android:id="@+id/etworkshop"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_input"
+                    android:hint="Workshop name or years of experience"
+                    android:inputType="textCapWords"
+                    android:maxLines="1"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="@color/gm_text_primary"
+                    android:textColorHint="@color/gm_text_muted"
+                    android:textSize="15sp" />
 
-            <Button
-                android:id="@+id/btnfinsih"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/etaddress"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="28dp"
-                android:layout_marginBottom="28dp"
-                android:background="@drawable/hire_me_btn"
-                android:paddingLeft="28dp"
-                android:paddingTop="10dp"
-                android:paddingRight="28dp"
-                android:paddingBottom="10dp"
-                android:text="Finish"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Password"
+                    android:textColor="@color/gm_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-        </RelativeLayout>
+                <EditText
+                    android:id="@+id/etpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_input"
+                    android:hint="Enter password"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:textColor="@color/gm_text_primary"
+                    android:textColorHint="@color/gm_text_muted"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Address"
+                    android:textColor="@color/gm_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etaddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_input"
+                    android:gravity="top|start"
+                    android:hint="Enter workshop or home address"
+                    android:inputType="textPostalAddress|textMultiLine"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="14dp"
+                    android:textColor="@color/gm_text_primary"
+                    android:textColorHint="@color/gm_text_muted"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/btnfinsih"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/bg_button_primary"
+                    android:text="Create Mechanic Account"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
     </ScrollView>
 
 </RelativeLayout>
