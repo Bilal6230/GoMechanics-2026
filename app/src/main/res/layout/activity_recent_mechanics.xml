@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    tools:context=".RecentMechanicsActivity">
+
+    <RelativeLayout
+        android:id="@+id/recentMechanicsHeader"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="#039BE5"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp">
+
+        <ImageButton
+            android:id="@+id/btnBackRecentMechanics"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="Back"
+            android:src="@android:drawable/ic_media_previous"
+            android:tint="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvRecentMechanicsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/robotoreg"
+            android:text="Recent Mechanics"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvEmptyRecentMechanics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recentMechanicsHeader"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/robotoreg"
+        android:text="No recent mechanics found"
+        android:textColor="@color/app_text_primary"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRecentMechanics"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/recentMechanicsHeader"
+        android:padding="16dp" />
+
+</RelativeLayout>
