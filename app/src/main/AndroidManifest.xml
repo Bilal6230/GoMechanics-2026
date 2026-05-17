@@ -14,6 +14,9 @@
         android:theme="@style/Theme.GoMechanics"
         tools:targetApi="31">
         <activity
+            android:name=".RecentMechanicsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChatBotActivity"
             android:exported="false" />
         <activity
