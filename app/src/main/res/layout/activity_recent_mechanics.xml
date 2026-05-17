@@ -3,22 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_background"
+    android:background="@drawable/bg_screen"
     tools:context=".RecentMechanicsActivity">
 
     <RelativeLayout
         android:id="@+id/recentMechanicsHeader"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:background="#039BE5"
-        android:paddingStart="14dp"
-        android:paddingEnd="14dp">
+        android:layout_height="190dp"
+        android:background="@drawable/bg_header_rounded"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:paddingTop="20dp">
 
         <ImageButton
             android:id="@+id/btnBackRecentMechanics"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_centerVertical="true"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:background="@android:color/transparent"
             android:contentDescription="Back"
             android:src="@android:drawable/ic_media_previous"
@@ -28,33 +30,67 @@
             android:id="@+id/tvRecentMechanicsTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_below="@id/btnBackRecentMechanics"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/robotoreg"
             android:text="Recent Mechanics"
             android:textColor="#FFFFFF"
-            android:textSize="22sp"
+            android:textSize="27sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvRecentMechanicsSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvRecentMechanicsTitle"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/robotoreg"
+            android:text="Mechanics you recently booked"
+            android:textColor="#EAF7FF"
+            android:textSize="15sp" />
 
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/tvEmptyRecentMechanics"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/recentMechanicsHeader"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
-        android:fontFamily="@font/robotoreg"
-        android:text="No recent mechanics found"
-        android:textColor="@color/app_text_primary"
-        android:textSize="18sp"
-        android:visibility="gone" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvRecentMechanics"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/recentMechanicsCard"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/recentMechanicsHeader"
-        android:padding="16dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="-38dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="#FFFFFF">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvEmptyRecentMechanics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/robotoreg"
+                android:text="No recent mechanics found"
+                android:textColor="@color/gm_text_secondary"
+                android:textSize="17sp"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRecentMechanics"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingBottom="10dp" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
