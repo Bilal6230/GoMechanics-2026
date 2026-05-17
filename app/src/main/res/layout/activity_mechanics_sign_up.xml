@@ -91,7 +91,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/etMname"
+                    android:id="@+id/etname"
                     android:layout_width="match_parent"
                     android:layout_height="54dp"
                     android:layout_marginTop="8dp"
@@ -109,19 +109,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Vehicle Experience"
+                    android:text="Vehicle Type / Experience"
                     android:textColor="@color/gm_text_primary"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
-                <Spinner
-                    android:id="@+id/etMvehicaletype"
+                <EditText
+                    android:id="@+id/etvehicaletype"
                     android:layout_width="match_parent"
                     android:layout_height="54dp"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/bg_input"
+                    android:hint="Car / Bike / Engine Expert"
+                    android:inputType="textCapWords"
+                    android:maxLines="1"
                     android:paddingStart="16dp"
-                    android:paddingEnd="16dp" />
+                    android:paddingEnd="16dp"
+                    android:textColor="@color/gm_text_primary"
+                    android:textColorHint="@color/gm_text_muted"
+                    android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -133,7 +139,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/etMcontact"
+                    android:id="@+id/etcontact"
                     android:layout_width="match_parent"
                     android:layout_height="54dp"
                     android:layout_marginTop="8dp"
@@ -148,7 +154,6 @@
                     android:textColorHint="@color/gm_text_muted"
                     android:textSize="15sp" />
 
-                <!-- CNIC FIELD RESTORED -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -174,7 +179,6 @@
                     android:textColorHint="@color/gm_text_muted"
                     android:textSize="15sp" />
 
-                <!-- WORKSHOP FIELD RESTORED -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -190,33 +194,8 @@
                     android:layout_height="54dp"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/bg_input"
-                    android:hint="Enter workshop or experience details"
+                    android:hint="Workshop name or years of experience"
                     android:inputType="textCapWords"
-                    android:maxLines="1"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp"
-                    android:textColor="@color/gm_text_primary"
-                    android:textColorHint="@color/gm_text_muted"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="Age"
-                    android:textColor="@color/gm_text_primary"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/etMage"
-                    android:layout_width="match_parent"
-                    android:layout_height="54dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/bg_input"
-                    android:hint="Enter age"
-                    android:inputType="number"
-                    android:maxLength="2"
                     android:maxLines="1"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
@@ -234,7 +213,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/etMpassword"
+                    android:id="@+id/etpassword"
                     android:layout_width="match_parent"
                     android:layout_height="54dp"
                     android:layout_marginTop="8dp"
@@ -248,8 +227,33 @@
                     android:textColorHint="@color/gm_text_muted"
                     android:textSize="15sp" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Address"
+                    android:textColor="@color/gm_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etaddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_input"
+                    android:gravity="top|start"
+                    android:hint="Enter workshop or home address"
+                    android:inputType="textPostalAddress|textMultiLine"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="14dp"
+                    android:textColor="@color/gm_text_primary"
+                    android:textColorHint="@color/gm_text_muted"
+                    android:textSize="15sp" />
+
                 <Button
-                    android:id="@+id/btnMfinsih"
+                    android:id="@+id/btnfinsih"
                     android:layout_width="match_parent"
                     android:layout_height="54dp"
                     android:layout_marginTop="24dp"
@@ -259,35 +263,6 @@
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"
                     android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="8dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Already registered?"
-                        android:textColor="@color/gm_text_secondary"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tvSigin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
-                        android:text="Sign In"
-                        android:textColor="@color/gm_primary"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-
 
             </LinearLayout>
 
